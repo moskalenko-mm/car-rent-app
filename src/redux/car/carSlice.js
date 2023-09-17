@@ -13,8 +13,11 @@ const handleRejected = (state, action) => {
 };
 
 const handleFulfilled = (state, action) => {
-  state.isLoading = false;
-  state.cars = action.payload;
+  return {
+    ...state,
+    isLoading: false,
+    cars: action.payload,
+  };
 };
 
 export const fetchCarsRequest = createAsyncThunk("cars/fetchCars", async () => {
@@ -32,10 +35,10 @@ const carSlice = createSlice({
   },
   reducers: {
     addToFavorite(state, action) {
-      return (state = [...state, action.payload]);
+      state.favorites.push(action.payload);
     },
     removeFromFavorite(state, action) {
-      return (state = state.filter((user) => user !== action.payload));
+      state.favorites = state.favorites.filter((car) => car !== action.payload);
     },
   },
   extraReducers: {
