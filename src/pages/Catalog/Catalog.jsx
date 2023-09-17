@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import CarFilters from "../../components/CarFilters/CarFilters";
 import { fetchCarsRequest } from "../../redux/car/carSlice";
 import { Container } from "../../components/Container/Container";
 import { CarList } from "../../components/CarList/CarList";
@@ -33,7 +32,6 @@ export const Catalog = () => {
     <Container>
       <CatalogWrapper>
         {isLoading && <p>loading</p>}
-        <CarFilters />
         {displayedCars.length > 0 ? (
           <CarList cars={displayedCars} />
         ) : (

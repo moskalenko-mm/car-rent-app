@@ -27,6 +27,13 @@ export const InfoWrapper = styled.div`
   width: 100%;
   align-items: center;
 `;
+export const CarInfoWrapper = styled.div`
+  width: 100%;
+  align-items: center;
+  background: #dcd7c9;
+  border-radius: 12px;
+  padding: 3px;
+`;
 export const SecondaryCarInfo = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -53,7 +60,6 @@ export const MainInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 14px;
   font-weight: 500;
   line-height: 24px;
 `;
@@ -109,7 +115,7 @@ export const LearnMoreBtn = styled.button`
   font-weight: 600;
   line-height: 20px;
   border-radius: 12px;
-  background: #3470ff;
+  background: #a27b5c;
   border: none;
   outline: none;
   margin-top: 18px;
@@ -117,7 +123,8 @@ export const LearnMoreBtn = styled.button`
 
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    background: #0b44cd;
+    background: #dcd7c9;
+    color: #2c3639;
   }
 `;
 

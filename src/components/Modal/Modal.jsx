@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import {
   ModalContainer,
   Backdrop,
+  BtnClose,
   CloseIcon,
   CarImg,
   InfoWrapper,
@@ -23,8 +24,8 @@ import {
   RentalItem,
   RentalInfo,
   RentalBlock,
-  RentalButton,
 } from "./Modal.styled";
+import { RentalButton } from "../Buttons/RentalBtn/RentalBtn";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -86,9 +87,9 @@ const Modal = ({
     <Backdrop onClick={onOverlay} className="show">
       <ModalContainer className="show">
         <ContentWrapper>
-          <button type="button" aria-label="close button" onClick={onClose}>
+          <BtnClose type="button" aria-label="close button" onClick={onClose}>
             <CloseIcon />
-          </button>
+          </BtnClose>
           <CarImg src={img} alt={make} />
           <InfoWrapper>
             <MainInfo>
@@ -144,7 +145,7 @@ const Modal = ({
                 </RentalItem>
               </RentalInfo>
             </RentalBlock>
-            <RentalButton href="tel:+380730000000">Rental car</RentalButton>
+            <RentalButton />
           </InfoWrapper>
         </ContentWrapper>
       </ModalContainer>

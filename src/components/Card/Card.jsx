@@ -16,6 +16,7 @@ import {
   IconBtn,
   SecondaryCarInfo,
   SecondaryCarAbout,
+  CarInfoWrapper,
 } from "./Card.styled";
 import Modal from "../Modal/Modal";
 import { addToFavorite, removeFromFavorite } from "../../redux/car/carSlice";
@@ -89,30 +90,32 @@ export const Card = ({ car }) => {
         </IconBtn>
       </CarImgWrap>
       <InfoWrapper>
-        <MainInfo>
-          <CarInfo>
-            <CarText>{make}</CarText>
-            <ModelBlue>
-              {modelTitle[0]}
-              <span style={{ color: "black" }}>,</span>
-            </ModelBlue>
-            <CarText>{year}</CarText>
-          </CarInfo>
-          <CarText>{rentalPrice}</CarText>
-        </MainInfo>
-        <SecondaryInfo>
-          <SecondaryCarInfo>
-            <SecondaryCarAbout>{city}</SecondaryCarAbout>
-            <SecondaryCarAbout>{country}</SecondaryCarAbout>
-            <SecondaryCarAbout>{rentalCompany}</SecondaryCarAbout>
-          </SecondaryCarInfo>
-          <SecondaryCarInfo>
-            <SecondaryCarAbout>{type}</SecondaryCarAbout>
-            <SecondaryCarAbout>{makeTitle[0]}</SecondaryCarAbout>
-            <SecondaryCarAbout>{id}</SecondaryCarAbout>
-            <SecondaryCarAbout>{firstFunctionality}</SecondaryCarAbout>
-          </SecondaryCarInfo>
-        </SecondaryInfo>
+        <CarInfoWrapper>
+          <MainInfo>
+            <CarInfo>
+              <CarText>{make}</CarText>
+              <ModelBlue>
+                {modelTitle[0]}
+                <span style={{ color: "black" }}>,</span>
+              </ModelBlue>
+              <CarText>{year}</CarText>
+            </CarInfo>
+            <CarText>{rentalPrice}</CarText>
+          </MainInfo>
+          <SecondaryInfo>
+            <SecondaryCarInfo>
+              <SecondaryCarAbout>{city}</SecondaryCarAbout>
+              <SecondaryCarAbout>{country}</SecondaryCarAbout>
+              <SecondaryCarAbout>{rentalCompany}</SecondaryCarAbout>
+            </SecondaryCarInfo>
+            <SecondaryCarInfo>
+              <SecondaryCarAbout>{type}</SecondaryCarAbout>
+              <SecondaryCarAbout>{makeTitle[0]}</SecondaryCarAbout>
+              <SecondaryCarAbout>{id}</SecondaryCarAbout>
+              <SecondaryCarAbout>{firstFunctionality}</SecondaryCarAbout>
+            </SecondaryCarInfo>
+          </SecondaryInfo>
+        </CarInfoWrapper>
         <LearnMoreBtn onClick={openModal}>Learn more</LearnMoreBtn>
         {isModalOpen && (
           <Modal
