@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 
-export const getStyledIcon = (component) => styled(component)`
-  width: 50%;
-  height: 50%;
-  @media screen and(min-width: 768px) {
-    height: 50%;
-  }
+export const HomeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 50px;
 `;

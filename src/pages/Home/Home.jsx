@@ -1,12 +1,15 @@
-import { ReactComponent as carIcon } from "../../images/Porsche_911_brut.svg";
-import { getStyledIcon } from "./Home.styled";
-
-const StyledCarIcon = getStyledIcon(carIcon);
+import { Container } from "../../components/Container/Container";
+import { Hero } from "../../components/Hero/Hero";
+import { OurServices } from "../../components/OurServices/OurServices";
+import { HomeWrapper } from "./Home.styled";
 
 export const Home = () => {
   return (
-    <>
-      <StyledCarIcon />
-    </>
+    <Container>
+      <HomeWrapper>
+        <Hero />
+        <OurServices />
+      </HomeWrapper>
+    </Container>
   );
 };
