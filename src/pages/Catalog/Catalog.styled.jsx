@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
 
-export const HomeWrapper = styled.div`
+export const CatalogWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 50px;
   padding-bottom: 20px;
 `;

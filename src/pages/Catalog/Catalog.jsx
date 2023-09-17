@@ -6,6 +6,7 @@ import { Container } from "../../components/Container/Container";
 import { CarList } from "../../components/CarList/CarList";
 import { LoadMoreButton } from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn.styled";
 import { selectCars } from "../../redux/car/selectors";
+import { CatalogWrapper } from "./Catalog.styled";
 
 export const Catalog = () => {
   const cars = useSelector(selectCars);
@@ -30,19 +31,21 @@ export const Catalog = () => {
 
   return (
     <Container>
-      {isLoading && <p>loading</p>}
-      <CarFilters />
-      {displayedCars.length > 0 ? (
-        <CarList cars={displayedCars} />
-      ) : (
-        <h2>Unfortunately, we could not find any cars</h2>
-      )}
+      <CatalogWrapper>
+        {isLoading && <p>loading</p>}
+        <CarFilters />
+        {displayedCars.length > 0 ? (
+          <CarList cars={displayedCars} />
+        ) : (
+          <h2>Unfortunately, we could not find any cars</h2>
+        )}
 
-      {cars.length > displayedCars.length && (
-        <LoadMoreButton type="button" onClick={loadMore}>
-          Load more
-        </LoadMoreButton>
-      )}
+        {cars.length > displayedCars.length && (
+          <LoadMoreButton type="button" onClick={loadMore}>
+            Load more
+          </LoadMoreButton>
+        )}
+      </CatalogWrapper>
     </Container>
   );
 };
