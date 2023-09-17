@@ -15,3 +15,6 @@ Error Notifications: To ensure a smooth user experience, we've incorporated erro
 
 Car Rental Hub simplifies the car rental process with its user-friendly platform and a comprehensive set of features. Whether you're in search of a specific car brand, competitive pricing, or low-mileage options, our platform has you covered. Embark on your next adventure today with Car Rental Hub!
 ![Home](image.png)
+![Catalog](image-1.png)
+![Favorites](image-2.png)
+![Modal](image-4.png)

@@ -18,7 +18,7 @@ export const ModalContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #dcd7c9;
   border-radius: 24px;
   padding: 15px;
   max-width: 320px;
@@ -96,8 +96,6 @@ export const CloseIcon = styled(MdClose)`
 
 export const ContentWrapper = styled.div`
   position: relative;
-
-  background-color: white;
   border-radius: 24px;
 
   @media (min-width: 768px) {
