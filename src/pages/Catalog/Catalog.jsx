@@ -7,6 +7,7 @@ import { LoadMoreButton } from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn
 import { selectCars } from "../../redux/car/selectors";
 import { CatalogWrapper } from "./Catalog.styled";
 import { Loader } from "../../components/Loader/Loader";
+import CarFilters from "../../components/CarFilters/CarFilters";
 
 export const Catalog = () => {
   const cars = useSelector(selectCars);
@@ -14,6 +15,14 @@ export const Catalog = () => {
   const [perPage] = useState(8);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+
+  const [selectedMake, setSelectedMake] = useState("");
+  const [selectedPriceRange, setSelectedPriceRange] = useState({
+    min: 0,
+    max: 500,
+  });
+  const [minMileage, setMinMileage] = useState("");
+  const [maxMileage, setMaxMileage] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,7 +36,23 @@ export const Catalog = () => {
   const startIndex = 0;
   const endIndex = page * perPage;
 
-  const displayedCars = cars.slice(startIndex, endIndex);
+  const filteredCars = cars.filter((car) => {
+    const isMakeMatch = !selectedMake || car.make === selectedMake;
+
+    const rentalPriceValue = parseFloat(car.rentalPrice.replace("$", ""));
+    const isPriceInRange =
+      !selectedPriceRange ||
+      (rentalPriceValue >= selectedPriceRange.min &&
+        rentalPriceValue <= selectedPriceRange.max);
+
+    const isMileageInRange =
+      (!minMileage || car.mileage >= minMileage) &&
+      (!maxMileage || car.mileage <= maxMileage);
+
+    return isMakeMatch && isPriceInRange && isMileageInRange;
+  });
+
+  const displayedCars = filteredCars.slice(startIndex, endIndex);
 
   return (
     <Container>
@@ -35,6 +60,16 @@ export const Catalog = () => {
         <Loader />
       ) : (
         <CatalogWrapper>
+          <CarFilters
+            selectedMake={selectedMake}
+            setSelectedMake={setSelectedMake}
+            selectedPriceRange={selectedPriceRange}
+            setSelectedPriceRange={setSelectedPriceRange}
+            minMileage={minMileage}
+            setMinMileage={setMinMileage}
+            maxMileage={maxMileage}
+            setMaxMileage={setMaxMileage}
+          />
           {displayedCars.length > 0 ? (
             <CarList cars={displayedCars} />
           ) : (
